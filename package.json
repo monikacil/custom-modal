@@ -1,6 +1,6 @@
 {
   "name": "custom-modal-web-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Bachelor thesis project",
   "main": "main.js",
   "scripts": {
