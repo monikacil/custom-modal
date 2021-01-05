@@ -1,15 +1,14 @@
 <div class="modal-wrapper">
     <div class="modal-dialog">
-        <div class="modal-header">
+        <header class="modal-header">
             <div class="modal-title"></div>
             <div class="close"></div>
-        </div>
+        </header>
         <div class="modal-content">
             <slot name="content"></slot>
         </div>
-        <div class="modal-footer">
-            <button class="btn left-btn">Close</button>
-            <button class="btn right-btn">Send</button>
-        </div>
+        <footer>
+            <button class="btn success-btn">Send</button>
+        </footer>
     </div>
 </div>

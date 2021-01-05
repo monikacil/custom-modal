@@ -6,7 +6,7 @@ templateEl.innerHTML = '<style>' + style.toString() + '</style>' + template;
 
 class Modal extends HTMLElement {
     static get observedAttributes () {
-        return ['title', 'open', 'closable', 'right-btn'];
+        return ['title', 'open', 'button', 'size'];
     }
 
     constructor() {
@@ -19,15 +19,15 @@ class Modal extends HTMLElement {
 
         // Elements in Shadow DOM
         this.modalWrapper = this.shadowRoot.querySelector('.modal-wrapper')
+        this.modalDialog = this.shadowRoot.querySelector('.modal-dialog')
         this.modalTitle = this.shadowRoot.querySelector('.modal-title')
+        this.modalFooter = this.shadowRoot.querySelector('footer')
         this.closeIcon = this.shadowRoot.querySelector('.close');
-        this.leftBtn = this.shadowRoot.querySelector('.left-btn');
-        this.rightBtn = this.shadowRoot.querySelector('.right-btn');
+        this.button = this.shadowRoot.querySelector('.success-btn');
 
         // Listeners
         this.closeIcon.addEventListener('click', this._dispatchEvent('close'));
-        this.leftBtn.addEventListener('click', this._dispatchEvent('close'));
-        this.rightBtn.addEventListener('click', this._dispatchEvent('send'))
+        this.button.addEventListener('click', this._dispatchEvent('btn-click'))
     }
 
     connectedCallback() {
@@ -39,20 +39,23 @@ class Modal extends HTMLElement {
         switch(attr) {
             case 'title':
                 this.modalTitle.innerText = newValue;
-            case 'closable':
-                if (attr == 'closable') {
-                    this.leftBtn.classList.add('visible');
-                }
-            case 'right-btn':
-                this.rightBtn.classList.add('visible');
-                this.rightBtn.innerText = newValue ? (newValue.charAt(0).toUpperCase() + newValue.slice(1)) : 'Send'
+                break;
+            case 'button':
+                this.button.classList.add('visible');
+                this.button.innerText = newValue ? (newValue.charAt(0).toUpperCase() + newValue.slice(1)) : 'Send'
+                this.modalFooter.classList.add('modal-footer')
+                break;
             case 'open':
-                if (attr == 'open') {
-                    if (newValue == 'true')
-                        this.modalWrapper.classList.add('modal-open');
-                    else
-                        this.modalWrapper.classList.remove('modal-open');
+                if (newValue == 'true')
+                    this.modalWrapper.classList.add('modal-open');
+                else
+                    this.modalWrapper.classList.remove('modal-open');
+                break;
+            case 'size':
+                if (attr == 'size' && newValue == 'l') {
+                    this.modalDialog.classList.add('modal-size-l')
                 }
+                break;
         }
     }
 

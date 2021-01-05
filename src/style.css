@@ -1,5 +1,5 @@
 :host {
-    display: block;
+    float:left;
     color: #1F2834;
 }
 
@@ -30,6 +30,15 @@
     background-color: white;
 }
 
+.modal-size-l {
+    width: 60%;
+}
+
+.modal-size-xl {
+    top: 20%;
+    width: 80%;
+}
+
 .modal-header {
     width: 100%;
     font-size: 23px;
@@ -37,18 +46,17 @@
     position: relative;
     padding-bottom: 10px;
     border-bottom: 1px solid lightgray;
-    margin-bottom: 20px;
 }
 .modal-title {}
 
 .modal-content {
     text-align: center;
+    padding: 10px 0;
 }
 
 .modal-footer {
     padding: 10px 0 0;
     border-top: 1px solid lightgray;
-    margin-top: 20px;
 }
 
 .close {
@@ -100,21 +108,13 @@
   transform: scale(0.95);
 }
 
-.right-btn {
+.success-btn {
     background: #4CAF50;
     float: right;
 }
 
-.right-btn:hover {
+.success-btn:hover {
     background-color: #3e8e41
-}
-
-.left-btn {
-    background: #555555;
-}
-
-.left-btn:hover {
-    background: #4a4a4a;
 }
 
 .visible {
