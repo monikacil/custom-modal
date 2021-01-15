@@ -1,5 +1,3 @@
-'use strict';
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require("path");
@@ -15,6 +13,16 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.m?js$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["@babel/preset-env"]
+                    }
+                }
+            },
+            {
                 test: /\.css$/i,
                 loader: "css-loader"
             },
@@ -26,10 +34,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: "Demo",
-            filename: "index.html",
-            template: "dev/index.html",
-            inject: true
+            filename: "demo.html",
+            template: "dev/index.html"
         })
     ]
 }
