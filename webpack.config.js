@@ -1,3 +1,5 @@
+'use strict';
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require("path");
@@ -14,7 +16,7 @@ module.exports = {
         rules: [
             {
                 test: /\.m?js$/,
-                exclude: /(node_modules)/,
+                exclude: /(node_modules|bower_components)/,
                 use: {
                     loader: "babel-loader",
                     options: {
@@ -34,8 +36,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: "demo.html",
-            template: "dev/index.html"
+            filename: "index.html",
+            template: "src/index.html"
         })
     ]
 }
