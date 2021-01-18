@@ -56,7 +56,10 @@ class Modal extends HTMLElement {
             case 'size':
                 if (attr == 'size' && newValue == 'l') {
                     this.modalDialog.classList.add('modal-size-l')
-                }
+                } else if (attr == 'size' && newValue == 'xl') {
+                    this.modalDialog.classList.add('modal-size-xl')
+                } else 
+                    this.modalDialog.classList.add('modal-size-m')
                 break;
         }
     }
