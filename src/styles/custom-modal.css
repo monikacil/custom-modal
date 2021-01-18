@@ -108,12 +108,12 @@
   transform: scale(0.95);
 }
 
-.success-btn {
+.footer-btn {
     background: #4CAF50;
     float: right;
 }
 
-.success-btn:hover {
+.footer-btn:hover {
     background-color: #3e8e41
 }
 

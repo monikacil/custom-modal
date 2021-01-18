@@ -23,17 +23,19 @@ class Modal extends HTMLElement {
         this.modalTitle = this.shadowRoot.querySelector('.modal-title')
         this.modalFooter = this.shadowRoot.querySelector('footer')
         this.closeIcon = this.shadowRoot.querySelector('.close');
-        this.button = this.shadowRoot.querySelector('.success-btn');
+        this.button = this.shadowRoot.querySelector('.footer-btn');
+    }
 
+    connectedCallback() {
         // Listeners
         this.closeIcon.addEventListener('click', this._dispatchEvent('close'));
         this.button.addEventListener('click', this._dispatchEvent('btn-click'))
     }
 
-    connectedCallback() {
-       
+    disconnectedCallback() {
+        this.closeIcon.removeEventListener('click', this._dispatchEvent('close'));
+        this.button.removeEventListener('click', this._dispatchEvent('btn-click'))
     }
-
 
     attributeChangedCallback(attr, oldValue, newValue) {
         switch(attr) {

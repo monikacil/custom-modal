@@ -32,7 +32,7 @@ Name | Type | Description | Mandatory | Default
 --- | --- | --- | --- | ---
 `title` | String | Available values **all** | Yes | -
 `open` | Boolean | Modal visible if value `true` | No | `false`
-`button` | String | Text for button in modal footer | No | `Send`
+`button` | String | Text for button in modal footer, if no `button` attribute - button invisible | No | `Send`
 `size` | String | Available values **m / l** | No | `m`
 
 ### Available events
